@@ -2,25 +2,28 @@
 A site that gives people the opportunity to discover new anime to watch!
 
 
-README (Top Half of README.md) - 15pts
-Title of your project
-Description of your project
-Description of target browsers (iOS? Android? Which ones?)
-Link to Developer Manual
+# What is my project?
+RANime Website
+A website that allows you to discover a variety of anime that you may have never heard of before. You are even able to select some filters that allow you to find something right up your alley!
+This website was designed to be used on a computer or laptop. Mobile compatability may arrive at a later date!
 
 
 
 
-Developer Manual (bottom half of your README.md) - 15pts
-The audience of this document is future developers who will take over your system.
-They know technical terms and have general knowledge about web applications, but do not have knowledge about your system design.
-You need to provide a technical document so that future developers can start setting up the application on their local machines, and keep working on the system development after you leave the team.
-Your Developer Manual covers:
-How to install your application and all dependencies
-How to run your application on a server
-How to run any tests you have written for your software
-The API for your server application - all GET, POST, PATCH, etc endpoints, and what they each do
-A clear set of expectations around known bugs and a road-map for future development.
-Documentation needs to be written in Markdown (MD) files, nicely formatted
-Documentation should be included in each team’s final code submission.
-Documentation should be saved in your main project directory under "docs"
+#Developer Manual
+
+#Dependencies
+All dependencies can be found in the package.json file. You can download each file by going to its respective website and running their install files on your device's terminal. 
+
+#Getting Started
+The first file you want to look at is the databaseBuilder.ipynb. Since I am more comfortable with Python, I used that file to set up the database. Once you set up a Supabase and create a .env file with the URL and KEY, this file can help you set up your database and filter out some troublesome rows. I would also recommend removing null values here (I ended up doing this later through other code). 
+
+#API
+Thanks to the IPython Notebook file creating my Supabase, all of the fetch calls are bringing data from that database. Specific documentation can be found on Supabase's website, but if you are wondering what each of my functions does, look at what the names say for a descriptive gist! Another important thing I did was create cookies for each customer. This served as an ID, so that their watchlist could be saved. 
+
+#Bugs and future development
+Originally, I was going to have "pages" on the homescreen for a watchlist, allowing the user to use their keyboard to navigate through the pages. This didn't work as planned, and I was only able to show 5-10 (I avoided any more to avoid cluttering). In the future, I will work on making a convenient watchlist, whether that be through the pages system or its own separate page. 
+
+#Credits
+I received my theme from here:
+https://www.quackit.com/html/html_editors/scratchpad/?example=/html/templates/navbars/glassmorphic_navbar
