@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomize Page</title>
+    <link rel="stylesheet" href="external.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+    <script src="external.js"></script>
+</head>
+<body>
+    <header class="navbar" role="banner">
+        <div class="navbar__container">
+            <a href="Home.html" class="navbar__brand" aria-label="Homepage">RANime</a>
+            
+            <button class="navbar__toggle" 
+                    id="navbarToggle" 
+                    aria-label="Toggle navigation" 
+                    aria-controls="navbarMenu" 
+                    aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
+                <ul class="navbar__list">
+                    <li class="navbar__item"><a href="Home.html" class="navbar__link">Home</a></li>
+                    <li class="navbar__item"><a href="About.html" class="navbar__link">About Us</a></li>
+                    <li class="navbar__item"><a href="Random.html" class="navbar__link navbar__link--active">Randomize</a></li>
+                    </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <br><br><br>
+        <h1 style="text-align: center;">Try Your Hand!</h1>
+
+        <div class="FilterBar">
+            <form onsubmit="findRandomAnime(); return false;">
+                <label for="select-genre"><h4>Genres: </h4></label>
+                <select id="select-genre" multiple placeholder="Choose genres..." autocomplete="off">
+
+                </select>
+                <label for="select-theme"><h4>Themes: </h4></label>
+                <select id="select-theme" multiple placeholder="Choose themes..." autocomplete="off">
+
+                </select>
+                <label for="min-score">Minimum Score: </label>
+                <input type="text" id="min-score" placeholder="0">
+                <label for="max-score">Maximum Score: </label>
+                <input type="text" id="max-score" placeholder="10"><br>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+        <h1 id="warning"></h1>
+        <div class="anime-card">
+                <a href="" class="anime-link"><img class="anime-img" /></a>
+                <div class="anime-info">
+                    <h2 class="anime-title"></h2>
+                    <h3 class="anime-ranking">Ranked: #</h3>
+                    <h3 class="anime-genre">Genres: </h3>
+                    <h3 class="anime-theme">Themes: </h3>
+                    <p class="anime-synopsis"></p>
+                    <button class = "addToList" onclick="addToWatchlist()">Add To Watchlist ♡</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <script>
+        // A self-contained, accessible script to toggle the mobile menu.
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const navbarToggle = document.getElementById('navbarToggle');
+            const navbarMenu = document.getElementById('navbarMenu');
+
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', function () {
+                    navbarToggle.classList.toggle('is-active');
+                    navbarMenu.classList.toggle('is-active');
+
+                    // Update the aria-expanded attribute for screen readers
+                    const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                    navbarToggle.setAttribute('aria-expanded', !isExpanded);
+                });
+                
+            }
+
+
+            genreSelect = new TomSelect("#select-genre",{
+                maxItems: 10
+            });
+            themeSelect = new TomSelect("#select-theme",{
+                maxItems: 10
+            });
+            loadOptions();
+        });
+
+        function loadOptions(){
+            const genres = ['Action', 'Award Winning', 'Sci-Fi', 'Adventure', 'Drama', 'Mystery',
+             'Supernatural', 'Fantasy', 'Sports', 'Comedy', 'Romance', 'Suspense', 'Ecchi', 'Avant Garde',
+              'Gourmet', 'Horror', 'Girls Love', 'Boys Love', 'Slice of Life'];
+            const themes = ['Adult Cast', 'Space', 'Detective', 'Team Sports', 'Love Polygon', 'Visual Arts',
+             'Racing', 'Psychological', 'Martial Arts', 'School', 'Combat Sports', 'Gag Humor', 'Organized Crime',
+              'Vampire', 'Historical', 'Military', 'Time Travel', 'Mecha', 'Gore', 'Samurai', 'Super Power', 'Video Game',
+               'Reincarnation', 'Strategy Game', 'Harem', 'Music', 'Survival', 'Mythology', 'CGDCT', 'Mahou Shoujo', 'Urban Fantasy',
+                'Reverse Harem', 'Childcare', 'Delinquents', 'Parody', 'Isekai', 'Crossdressing', 'Showbiz', 'Magical Sex Shift', 'Otaku Culture',
+                 'Workplace', 'Iyashikei', 'Performing Arts', 'High Stakes Game', 'Anthropomorphic', 'Idols (Female)', 'Medical', 'Pets', 'Educational',
+                  'Idols (Male)', 'Love Status Quo', 'Villainess'];
+
+            const formattedGenres = genres.map(genre => ({value: genre, text: genre}));
+            const formattedThemes = themes.map(theme => ({value: theme, text: theme}));
+
+            genreSelect.addOptions(formattedGenres);
+            themeSelect.addOptions(formattedThemes);
+
+        }
+        </script>
+    </main>
+    
+    <footer>
+
+    </footer>
+</body>
+</html>

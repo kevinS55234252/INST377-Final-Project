@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="external.css">
+    <script src="external.js"></script>
+</head>
+<body>
+    <header class="navbar" role="banner">
+        <div class="navbar__container">
+            <a href="Home.html" class="navbar__brand" aria-label="Homepage">RANime</a>
+            
+            <button class="navbar__toggle" 
+                    id="navbarToggle" 
+                    aria-label="Toggle navigation" 
+                    aria-controls="navbarMenu" 
+                    aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
+                <ul class="navbar__list">
+                    <li class="navbar__item"><a href="Home.html" class="navbar__link">Home</a></li>
+                    <li class="navbar__item"><a href="About.html" class="navbar__link navbar__link--active">About Us</a></li>
+                    <li class="navbar__item"><a href="Random.html" class="navbar__link">Randomize</a></li> 
+                    </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <br><br><br>
+        <h3 id="about">
+            We are fellow anime watchers who struggle to find good shows to watch at times. MyAnimeList makes
+            it tedious to find anime that hits certain itches, and that’s where RANime comes
+            in. You can find top animes, or even random ones, in certain genres, themes, and rating scores! If you are simply here to
+            find the a random anime on MyAnimeList, you can simply glance at the home page and look through the options.
+            However, if you are interested in finding a more specific anime, you can click on the
+            “Random” button on the navigation bar. This will allow you to look at random anime
+            within certain criteria that you choose. If you are feeling risky, you can go in
+            without entering any specific settings and see what you get!
+        </h3>
+
+        <script>
+        // A self-contained, accessible script to toggle the mobile menu.
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbarToggle = document.getElementById('navbarToggle');
+            const navbarMenu = document.getElementById('navbarMenu');
+
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', function () {
+                    navbarToggle.classList.toggle('is-active');
+                    navbarMenu.classList.toggle('is-active');
+
+                    // Update the aria-expanded attribute for screen readers
+                    const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                    navbarToggle.setAttribute('aria-expanded', !isExpanded);
+                });
+            }
+        });
+        </script>
+    </main>
+    
+    <footer>
+
+    </footer>
+</body>
+</html>
